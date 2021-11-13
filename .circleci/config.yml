@@ -2,7 +2,7 @@ working_dir: &working_dir ~/app
 .build_template: &commonSteps
   steps:
     - checkout
-    - run: exit 1
+    - run: 
         name: A
         command: |
           sudo apt update -y
